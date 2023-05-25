@@ -1,0 +1,27 @@
+<div class="text-center mt-4">
+  <h3>COMPANY <i class="bi bi-chevron-double-up text-success"></i> CRM</h3>
+  <p>login with your account</p>
+</div>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" id="form" class="col-6 m-auto">
+  <div class="d-grid gap-2">
+    <div class="mb-3">
+      <label for="email" class="form-label">Email:</label>
+      <input formControlName="email" type="text" class="form-control" id="email" placeholder="name@email.com" #email>
+      <app-field-error [formField]="getFieldControl('email')"></app-field-error>
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password:</label>
+      <input placeholder="password" formControlName="password" type="password" class="form-control" id="password">
+      <app-field-error [formField]="getFieldControl('password')"></app-field-error>
+    </div>
+
+    <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary btn-lg">
+      Login
+    </button>
+  </div>
+  <div *ngIf="error" class="rounded text-danger bg-light p-2 mb-2">
+    <i class="bi-exclamation-circle-fill"></i>
+    wrong email or password
+  </div>
+</form>

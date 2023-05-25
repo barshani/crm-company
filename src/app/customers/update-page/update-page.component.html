@@ -1,0 +1,42 @@
+<form [formGroup]="editCustomerForm" (ngSubmit)="onSubmit()" class="row mb-4 w-75 m-auto">
+  <div>
+    <div class="h1">
+      <i class="fa fa-pencil"></i> Edit Customer Form
+    </div>
+    <div class="row mb-4">
+      <div class="col">
+        <label for="lastName">First Name</label>
+        <input formControlName="firstName" type="text" class="form-control" placeholder="firstName">
+        <app-customers-error [formField]="getFieldControl('firstName')"></app-customers-error>
+      </div>
+      <div class="col">
+        <label for="lastName">Last Name</label>
+        <input formControlName="lastName" type="text" class="form-control" placeholder="lastName">
+        <app-customers-error [formField]="getFieldControl('lastName')"></app-customers-error>
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col">
+        <label for="phone">Phone</label>
+        <input formControlName="phone" type="text" class="form-control" placeholder="phone">
+        <app-customers-error [formField]="getFieldControl('phone')"></app-customers-error>
+      </div>
+      <div class="col">
+        <label for="email">Email</label>
+        <input formControlName="email" type="text" class="form-control" placeholder="email">
+        <app-customers-error [formField]="getFieldControl('email')"></app-customers-error>
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col-12">
+        <label for="address">Address</label>
+        <input formControlName="address" [disabled]="bol" type="text" class="form-control" placeholder="address">
+        <app-customers-error [formField]="getFieldControl('address')"></app-customers-error>
+      </div>
+    </div>
+    <div class="d-md-flex gap-2 justify-content-md-center">
+      <button routerLink="/customers" class="btn btn-secondary">cancel</button>
+      <button [disabled]="editCustomerForm.invalid" type="submit" class="btn btn-primary">update</button>
+    </div>
+  </div>
+</form>

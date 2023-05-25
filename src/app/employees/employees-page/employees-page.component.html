@@ -1,0 +1,32 @@
+<div class="row mb-4 w-75 m-auto">
+  <div class="h1">
+    <i class="fa fa-envelope"></i> Contacts
+  </div>
+  <div>
+    <button (click)="getEmployee()"><i class="bi bi-search"></i></button>
+    <input id="text" type="text" placeholder="search names">
+
+  </div>
+  <table class="table mt-4">
+    <thead>
+      <tr>
+        <th class="col-2">#</th>
+        <th class="align-middle">Name</th>
+        <th class="align-middle">Birthday</th>
+        <th class="align-middle">Email</th>
+        <th class="align-middle">phone</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of filtered;index as i">
+        <td>{{i+1}}
+
+        </td>
+        <td>{{employee.name}}</td>
+        <td>{{employee.birthday}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.phone}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
